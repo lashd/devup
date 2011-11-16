@@ -18,6 +18,11 @@ function run(){
   fi
 }
 
+function upgrade_system_packages(){
+  run_as_root "apt-get update"
+  run_as_root "apt-get upgrade"
+}
+
 function install(){
   run_as_root "apt-get -y install $1"
 }
