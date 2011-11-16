@@ -68,7 +68,7 @@ function install_rvm() {
   rvm pkg install openssl
 
   echo installing ruby 1.9.2
-  run "rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr --with-zlib-dir=$HOME/.rvm/usr"
+  run "rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr --with-zlib-dir=$HOME/.rvm/usr --with-readline-dir=$HOME/.rvm/usr"
 }
 
 function install_java(){
