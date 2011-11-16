@@ -11,6 +11,7 @@ download_devup
 
 . $tmp/lashd-dev*/functions.sh
 allow_user_to_sudo_without_password
+upgrade_system_packages
 configure_system_time
 install_vim
 install_git
