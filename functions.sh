@@ -65,10 +65,10 @@ function install_rvm() {
 
   rvm pkg install readline
   rvm pkg install zlib
-  rvm pkg install zlib
+  rvm pkg install openssl
 
   echo installing ruby 1.9.2
-  rvm install 1.9.2 --with-openssl-dir=~/.rvm/usr --with-zlib-dir=~/.rvm/usr
+  run "rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr --with-zlib-dir=$HOME/.rvm/usr"
 }
 
 function install_java(){
