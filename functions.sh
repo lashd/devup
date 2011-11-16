@@ -55,8 +55,7 @@ keycode 12 = 3 sterling 3 sterling numbersign" > ~/.Xmodmap
 
 function install_rvm() {
   echo "Installing RVM"
-  install 'curl'
-  install 'libreadline-dev'
+  install 'build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion'
 
   bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 
@@ -68,7 +67,7 @@ function install_rvm() {
   rvm pkg install openssl
 
   echo installing ruby 1.9.2
-  run "rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr --with-zlib-dir=$HOME/.rvm/usr --with-readline-dir=$HOME/.rvm/usr"
+  run "rvm install 1.9.2"
 }
 
 function install_java(){
