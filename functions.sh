@@ -62,9 +62,10 @@ function install_rvm() {
   echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
   source ~/.bash_profile
 
-  rvm pkg install readline
-  rvm pkg install zlib
-  rvm pkg install openssl
+  local global_gem_file = $HOME/.rvm/gemsets/global.gems
+  echo "rspec" >> $global_gem_file
+  echo "rake" >> $global_gem_file 
+
 
   echo installing ruby 1.9.2
   run "rvm install 1.9.2"
