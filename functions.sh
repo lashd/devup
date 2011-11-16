@@ -3,12 +3,7 @@
 resources_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/resources"
 
 function run_as_root(){
-  if [ -z $password ]; then
-    echo 'please enter you password'
-    read password
-  fi
-
-  run "echo ${password} | sudo -S $1"
+  run "echo password | sudo -S $1"
 }
 
 function run(){
