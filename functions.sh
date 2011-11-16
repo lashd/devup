@@ -1,6 +1,11 @@
 #!/bin/bash
 function run_as_root(){
-  run "echo password | sudo -S $1"
+  if [ -z $password ]; then
+    echo 'please enter you password'
+    read password
+  fi
+
+  run "echo ${password} | sudo -S $1"
 }
 
 function run(){
