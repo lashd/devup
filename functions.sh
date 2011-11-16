@@ -119,7 +119,7 @@ function install_intellij(){
 
 function disable_login_screen(){
   echo "Disabling enforced login"
-  run_as_root 'cp ./resources/lightdm.conf /etc/lightdm'
+  run_as_root "sed -e \"s/autologin-user=user/autologin-user=$USER/g\" ./resources/lightdm.conf > /etc/lightdm/lightdm.conf"
 }
 
 function disable_screen_locking(){
