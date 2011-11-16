@@ -1,4 +1,7 @@
 #!/bin/bash
+
+resources_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/resources"
+
 function run_as_root(){
   if [ -z $password ]; then
     echo 'please enter you password'
@@ -51,7 +54,7 @@ function fix_keyboard_mappings_for_mac(){
 keycode 12 = 3 sterling 3 sterling numbersign" > ~/.Xmodmap
 
   run_as_root 'mkdir -p /etc/X11/xorg.conf.d'
-  run_as_root 'cp ./resources/10-evdev.conf /etc/X11/xorg.conf.d'
+  run_as_root "cp ${resources_dir}/10-evdev.conf /etc/X11/xorg.conf.d"
 }
 
 
@@ -119,7 +122,7 @@ function install_intellij(){
 
 function disable_login_screen(){
   echo "Disabling enforced login"
-  run_as_root "sed -e \"s/autologin-user=user/autologin-user=$USER/g\" ./resources/lightdm.conf > /etc/lightdm/lightdm.conf"
+  run_as_root "sed -e \"s/autologin-user=user/autologin-user=$USER/g\" ${resources_dir}/lightdm.conf > /etc/lightdm/lightdm.conf"
 }
 
 function disable_screen_locking(){
