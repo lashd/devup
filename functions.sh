@@ -19,8 +19,9 @@ function run(){
 }
 
 function upgrade_system_packages(){
+  echo "Upgrade OS packages"
   run_as_root "apt-get update"
-  run_as_root "apt-get upgrade"
+  run_as_root "apt-get -y upgrade"
 }
 
 function install(){
