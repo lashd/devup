@@ -121,6 +121,11 @@ function install_intellij(){
   ln -s $target_dir/$intellij $target_dir/intellij
 }
 
+function install_imagemagick(){
+    install 'imagemagick'
+    install 'libmagickwand-dev'
+}
+
 function disable_login_screen(){
   echo "Disabling enforced login"
   run "sed -i -e \"s/autologin-user=user/autologin-user=$USER/g\" ${resources_dir}/lightdm.conf"
