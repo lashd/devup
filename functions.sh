@@ -96,7 +96,8 @@ function install_java(){
    
   ln -s $target_dir/$extracted_jdk_dir $target_dir/$java_version
 
-  echo "export JAVA_HOME=~/Applications/java/${java_version}" >> ~/.bashrc
+  JAVA_HOME=~/Applications/java/${java_version}
+  echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
   echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
 
 }
@@ -116,9 +117,16 @@ function install_intellij(){
   rm $downloaded_file
 
   intellij=`ls $intellij_tmp_dir`
+  sed -i "1i JAVA_HOME=$JAVA_HOME" $intellij_tmp_dir/bin/idea.sh
 
   mv $intellij_tmp_dir/$intellij $target_dir/$intellij
   ln -s $target_dir/$intellij $target_dir/intellij
+
+  # Add shortcut for intellij
+  local shortcuts_dir=~/.local/share/applications
+  
+  mkdir -p $shortcuts_dir
+  cp $resources_dir/intellij.desktop $shortcuts_dir
 }
 
 function install_imagemagick(){
@@ -135,6 +143,11 @@ function disable_login_screen(){
 function disable_screen_locking(){
   echo "Disabling screen locking"
   gsettings set org.gnome.desktop.lockdown disable-lock-screen 'true'
+}
+
+function install_memcached(){
+  echo Installing Memcached
+  install 'memcached'
 }
 
 function reboot(){
