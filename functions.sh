@@ -117,7 +117,7 @@ function install_intellij(){
   rm $downloaded_file
 
   intellij=`ls $intellij_tmp_dir`
-  sed -i "1i JAVA_HOME=$JAVA_HOME" $intellij_tmp_dir/bin/idea.sh
+  sed -i "2i JAVA_HOME=$JAVA_HOME" $intellij_tmp_dir/$intellij/bin/idea.sh
 
   mv $intellij_tmp_dir/$intellij $target_dir/$intellij
   ln -s $target_dir/$intellij $target_dir/intellij
