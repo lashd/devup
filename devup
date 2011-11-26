@@ -18,6 +18,7 @@ install_git
 fix_keyboard_mappings_for_mac
 install_rvm
 install_intellij
+install_imagemagick
 disable_login_screen
 disable_screen_locking
 reboot
