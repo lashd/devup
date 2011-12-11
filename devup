@@ -17,6 +17,7 @@ install_vim
 install_git
 fix_keyboard_mappings_for_mac
 install_rvm
+install "chromium-browser"
 install_intellij
 install_imagemagick
 install_memcached
