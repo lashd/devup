@@ -25,6 +25,7 @@ function upgrade_system_packages(){
 }
 
 function install(){
+  echo "Installing: $1"
   run_as_root "apt-get -y install $1"
 }
 
@@ -121,6 +122,10 @@ function install_intellij(){
 
   mv $intellij_tmp_dir/$intellij $target_dir/$intellij
   ln -s $target_dir/$intellij $target_dir/intellij
+
+  # up default memory settings for Intellij
+  run "sed -i -e 's/-Xms.*/-Xms1024m/g ${target_dir}/intellij"
+  run "sed -i -e 's/-Xmx.*/-Xms1024m/g ${target_dir}/intellij"
 
   # Add shortcut for intellij
   local shortcuts_dir=~/.local/share/applications
