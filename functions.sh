@@ -69,7 +69,7 @@ function install_rvm() {
   echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
   source ~/.bash_profile
 
-  local global_gem_file = $HOME/.rvm/gemsets/global.gems
+  local global_gem_file=$HOME/.rvm/gemsets/global.gems
   echo "rspec" >> $global_gem_file
   echo "rake" >> $global_gem_file 
 
