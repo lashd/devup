@@ -124,8 +124,8 @@ function install_intellij(){
   ln -s $target_dir/$intellij $target_dir/intellij
 
   # up default memory settings for Intellij
-  run "sed -i -e 's/-Xms.*/-Xms1024m/g ${target_dir}/intellij"
-  run "sed -i -e 's/-Xmx.*/-Xms1024m/g ${target_dir}/intellij"
+  run "sed -i -e 's/-Xms.*/-Xms1024m/g ${target_dir}/intellij'"
+  run "sed -i -e 's/-Xmx.*/-Xms1024m/g ${target_dir}/intellij'"
 
   # Add shortcut for intellij
   local shortcuts_dir=~/.local/share/applications
