@@ -113,7 +113,7 @@ function install_intellij(){
 
   mkdir -p $intellij_tmp_dir $target_dir
 
-  wget -O $downloaded_file http://download.jetbrains.com/idea/ideaIU-11.tar.gz
+  wget -O $downloaded_file http://download.jetbrains.com/idea/ideaIU-11.0.1.tar.gz
   tar -xzf $downloaded_file -C $intellij_tmp_dir
   rm $downloaded_file
 
